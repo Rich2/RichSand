@@ -1,0 +1,21 @@
+// build.sc
+import mill._, scalalib._, scalajslib._, scalanativelib._, publish._
+
+
+
+object foo extends ScalaModule {
+  def scalaVersion = "3.5.2"
+
+  def unmanagedClasspath = T {
+    import coursier._, parse.DependencyParser
+    val fxMod = Dependency(Module(org"org.openjfx", ModuleName("javafx-controls")), "15.0.1")
+    val files = Fetch().addDependencies(fxMod).run()
+    val pathRefs = files.map(f => PathRef(os.Path(f)))
+    Agg(pathRefs: _*)
+  }
+
+  def forkArgs = Seq("--module-path",
+    sys.env("JAVAFX_HOME") + ":" + "/Users/ajr/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/openjfx/javafx-controls/15.0.1",
+    "--add-modules", "javafx.controls"
+  )
+}
