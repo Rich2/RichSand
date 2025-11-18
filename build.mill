@@ -1,18 +1,13 @@
-// build.sc
+//| # Copyright 2025 Richard Oliver. Licensed under Apache Licence version 2.0.
+//| mill-version: 1.0.6
 import mill._, scalalib._, scalajslib._, scalanativelib._, publish._
 
-
-
 object foo extends ScalaModule {
-  def scalaVersion = "3.5.2"
+  def scalaVersion = "3.7.4"
 
-  def unmanagedClasspath = T {
-    import coursier._, parse.DependencyParser
-    val fxMod = Dependency(Module(org"org.openjfx", ModuleName("javafx-controls")), "15.0.1")
-    val files = Fetch().addDependencies(fxMod).run()
-    val pathRefs = files.map(f => PathRef(os.Path(f)))
-    Agg(pathRefs: _*)
-  }
+  def platformDeps = Seq(mvn"org.openjfx:javafx-controls:15.0.1")
+  def jfx = Task { defaultResolver().classpath(platformDeps) }
+  def mvnDeps = platformDeps
 
   def forkArgs = Seq("--module-path",
     sys.env("JAVAFX_HOME") + ":" + "/Users/ajr/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/openjfx/javafx-controls/15.0.1",
