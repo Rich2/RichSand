@@ -1,7 +1,8 @@
-/* Copyright 2024 Richard Oliver. Licensed under Apache Licence version 2.0. */
+/* Copyright 2024-6 Richard Oliver. Licensed under Apache Licence version 2.0. */
+package pcore
 import java.net.*, java.io.*, ostrat.*, javafx.*, stage.*, scene.*, layout.StackPane, control.Button, event.*
 
-object Main
+object MainFx
 {
   def main(args: Array[String]): Unit =
   { javafx.application.Application.launch(classOf[AppStart], args*)
