@@ -3,5 +3,10 @@ package pcore
 import scala.annotation.unchecked.uncheckedVariance
 
 trait Tran[-A]
-{ def meth(obj: A, op: Int): A @uncheckedVariance
+{ def methT(obj: A, op: Int): A @uncheckedVariance
+}
+
+extension[A](value: A)(using evT: Tran[A])
+{
+  def meth4(op: Int) = evT.methT(value, op + 4)
 }

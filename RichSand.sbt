@@ -3,7 +3,7 @@ name:= "RichSand"
 version := "0.0.2"
 ThisBuild/scalaVersion := "3.7.4"
 
-lazy val Core = project.settings(
+lazy val Core = Project("Core", file("Core")).settings(
   resolvers += "RichStrat" at "https://richstrat.com/repository",
   libraryDependencies += "com.richstrat" % "rutil" % "0.3.9" withSources() withJavadoc(),
   libraryDependencies += "com.richstrat" % "geom" % "0.3.9" withSources() withJavadoc(),
