@@ -24,7 +24,7 @@ object Rectangle
 {
   def apply(num: Int): Rectangle = RectAImp(num)
   
-  given rotateEv[A <: Rectangle]: RotateLike[A, Rectangle] = (obj, op) => obj.meth(op)
+  given rotateEv: Rotate[Rectangle] = (obj, op) => obj.meth(op)
   case class RectAImp(num: Int) extends Rectangle
 }
 
