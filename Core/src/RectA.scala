@@ -11,7 +11,7 @@ object RectA
 {
   def apply(num: Int): RectA = RectAImp(num)
   
-  given tranEv: Tran[RectA] = (obj, op) => obj.meth(op)
+  given tranEv[A <: RectA]: Trans[A, RectA] = (obj, op) => obj.meth(op)
   case class RectAImp(num: Int) extends RectA
 }
 
@@ -19,5 +19,5 @@ case class RectB(num: Int) extends RectA
 
 object RectB
 {
-  given transEv: Trans[RectB, RectA] = (obj, op) => obj.meth(op)
+  //given transEv: Trans[RectB, RectA] = (obj, op) => obj.meth(op)
 }

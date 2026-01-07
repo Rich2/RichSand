@@ -16,8 +16,8 @@ object Trans
 }
 
 trait Tran[A] extends Trans[A, A]
-{
-}
+
+trait Traf[A] extends Trans[]
 
 extension[A, B](value: A)(using evT: Trans[A, B])
 { def meth4(op: Int): B = evT.methT(value, op + 4)
