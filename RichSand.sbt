@@ -1,7 +1,7 @@
-/* Copyright 2024-5 Richard Oliver. Licensed under Apache Licence version 2.0. */
+/* Copyright 2024-6 Richard Oliver. Licensed under Apache Licence version 2.0. */
 name:= "RichSand"
 version := "0.0.2"
-ThisBuild/scalaVersion := "3.7.4"
+ThisBuild/scalaVersion := "3.8.1"
 
 lazy val Core = Project("Core", file("Core")).settings(
   resolvers += "RichStrat" at "https://richstrat.com/repository",
