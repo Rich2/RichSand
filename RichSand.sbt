@@ -11,5 +11,6 @@ lazy val Core = Project("Core", file("Core")).settings(
   libraryDependencies += "com.richstrat" % "egrid" % "0.3.12" withSources() withJavadoc(),
   libraryDependencies += "org.openjfx" % "javafx-controls" % "21.0.6" withSources() withJavadoc(),
   Compile/scalaSource := baseDirectory.value / "src",
-  Compile/mainClass := Some("pcore.MainApp")
+  Compile/mainClass := Some("pcore.MainApp"),
+  scalacOptions ++= Seq("-feature", "-language:implicitConversions", "-noindent", "-deprecation", "-encoding", "UTF-8"),
 )
