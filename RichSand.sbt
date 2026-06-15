@@ -1,15 +1,15 @@
 /* Copyright 2024-6 Richard Oliver. Licensed under Apache Licence version 2.0. */
-name:= "RichSand"
-version := "0.0.2"
-ThisBuild/scalaVersion := "3.8.4"
+version := "0.1.0"
+scalaVersion := "3.8.4"
 
-lazy val Core = Project("Core", file("Core")).settings(
+lazy val Core = (project in file("Core")).settings(
+  name := "Core",
   resolvers += "RichStrat" at "https://richstrat.com/repository",
-  libraryDependencies += "com.richstrat" % "rutil" % "0.3.12" withSources() withJavadoc(),
-  libraryDependencies += "com.richstrat" % "geom" % "0.3.12" withSources() withJavadoc(),
-  libraryDependencies += "com.richstrat" % "tiling" % "0.3.12" withSources() withJavadoc(),
-  libraryDependencies += "com.richstrat" % "egrid" % "0.3.12" withSources() withJavadoc(),
-  libraryDependencies += "org.openjfx" % "javafx-controls" % "21.0.6" withSources() withJavadoc(),
+  libraryDependencies += ("com.richstrat" % "rutil" % "0.3.12").withSources().withJavadoc(),
+  libraryDependencies += ("com.richstrat" % "geom" % "0.3.12").withSources().withJavadoc(),
+  libraryDependencies += ("com.richstrat" % "tiling" % "0.3.12").withSources().withJavadoc(),
+  libraryDependencies += ("com.richstrat" % "egrid" % "0.3.12").withSources().withJavadoc(),
+  libraryDependencies += ("org.openjfx" % "javafx-controls" % "21.0.6").withSources().withJavadoc(),
   Compile/scalaSource := baseDirectory.value / "src",
   Compile/mainClass := Some("pcore.MainApp"),
   scalacOptions ++= Seq("-feature", "-language:implicitConversions", "-noindent", "-deprecation", "-encoding", "UTF-8"),
