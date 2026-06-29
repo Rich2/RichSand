@@ -14,3 +14,10 @@ lazy val Core = (project in file("Core")).settings(
   Compile/mainClass := Some("pcore.MainApp"),
   scalacOptions ++= Seq("-feature", "-language:implicitConversions", "-noindent", "-deprecation", "-encoding", "UTF-8"),
 )
+
+lazy val Serv = (project in file("Serv")).settings(
+  name := "Serv",
+  scalaVersion := "2.13.18",
+  libraryDependencies += ("jakarta.servlet" % "jakarta.servlet-api" % "6.1.0" % "provided").withSources().withJavadoc(),
+  Compile/scalaSource := baseDirectory.value / "src",
+)
