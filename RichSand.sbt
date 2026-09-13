@@ -1,15 +1,15 @@
 /* Copyright 2024-6 Richard Oliver. Licensed under Apache Licence version 2.0. */
 version := "1.0.0"
-scalaVersion := "3.8.4"
+scalaVersion := "3.9.0"
 
 lazy val Core = (project in file("Core")).settings(
   name := "Core",
   resolvers += "RichStrat" at "https://richstrat.com/repository",
-  libraryDependencies += ("com.richstrat" % "rutil" % "0.3.13").withSources().withJavadoc(),
-  libraryDependencies += ("com.richstrat" % "geom" % "0.3.13").withSources().withJavadoc(),
-  libraryDependencies += ("com.richstrat" % "tiling" % "0.3.13").withSources().withJavadoc(),
-  libraryDependencies += ("com.richstrat" % "egrid" % "0.3.13").withSources().withJavadoc(),
-  libraryDependencies += ("org.openjfx" % "javafx-controls" % "21.0.6").withSources().withJavadoc(),
+  libraryDependencies += ("com.richstrat" % "rutil" % "0.4.0").withSources().withJavadoc(),
+  libraryDependencies += ("com.richstrat" % "geom" % "0.4.0").withSources().withJavadoc(),
+  libraryDependencies += ("com.richstrat" % "tiling" % "0.4.0").withSources().withJavadoc(),
+  libraryDependencies += ("com.richstrat" % "egrid" % "0.4.0").withSources().withJavadoc(),
+  libraryDependencies += ("org.openjfx" % "javafx-controls" % "25.0.3").withSources().withJavadoc(),
   Compile/scalaSource := baseDirectory.value / "src",
   Compile/mainClass := Some("pcore.MainApp"),
   scalacOptions ++= Seq("-feature", "-language:implicitConversions", "-noindent", "-deprecation", "-encoding", "UTF-8"),
@@ -17,7 +17,7 @@ lazy val Core = (project in file("Core")).settings(
 
 lazy val Serv = (project in file("Serv")).settings(
   name := "Serv",
-  scalaVersion := "2.13.18",
+  //scalaVersion := "2.13.18",
   libraryDependencies += ("jakarta.servlet" % "jakarta.servlet-api" % "6.1.0" % "provided").withSources().withJavadoc(),
   Compile/scalaSource := baseDirectory.value / "src",
 )
