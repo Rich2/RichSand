@@ -5,9 +5,7 @@ import ostrat.*, utiljvm.*, zio.prelude.Validation
 object MainApp
 {
   def main(args: Array[String]): Unit =
-  { deb("At moment just to test ScalaDoc.")
-
-    deb("Welcome to PostApp!")
+  { deb("Welcome to PostApp!")
     val eStr: IOExcEither[String] = resourceStr("Postgres.rson")
     val eName = eStr.flatMap(_.findStrSetting("username"))
     val ePass = eStr.flatMap(_.findStrSetting("pWord"))
