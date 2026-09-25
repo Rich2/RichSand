@@ -6,7 +6,7 @@ object MainApp
 {
   def main(args: Array[String]): Unit =
   { deb("Welcome to PostApp!")
-    val eStr: IOExcEither[String] = resourceStr("Postgres.rson")
+    val eStr: IOExcEither[String] = loadResourceStr("Postgres.rson")
     val eName = eStr.flatMap(_.findStrSetting("username"))
     val ePass = eStr.flatMap(_.findStrSetting("pWord"))
     debvar(eName)
