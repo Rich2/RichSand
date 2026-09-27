@@ -1,7 +1,7 @@
 /* Copyright 2024-6 Richard Oliver. Licensed under Apache Licence version 2.0. */
 version := "1.0.0"
 scalaVersion := "3.9.0"
-val osUri = uri("https://github.com/Rich2/openstrat.git#f57ebf0")
+val osUri = uri("https://github.com/Rich2/openstrat.git#14c2962")
 lazy val Util = ProjectRef(osUri, "Util")
 lazy val Geom = ProjectRef(osUri, "Geom")
 lazy val Tiling = ProjectRef(osUri, "Tiling")
