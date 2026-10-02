@@ -21,5 +21,7 @@ lazy val Core = (project in file("Core")).dependsOn(Geom).settings(
 lazy val Serv = (project in file("Serv")).settings(
   name := "Serv",
   libraryDependencies += ("jakarta.servlet" % "jakarta.servlet-api" % "6.1.0" % "provided").withSources().withJavadoc(),
+  libraryDependencies += ("com.lihaoyi" %% "scalasql" % "0.3.2").withSources().withJavadoc(),
+  libraryDependencies += ("org.postgresql" % "postgresql" % "42.7.13").withSources().withJavadoc(),
   Compile/scalaSource := baseDirectory.value / "src",
 )
