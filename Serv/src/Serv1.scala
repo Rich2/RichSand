@@ -1,7 +1,9 @@
+/* Copyright 2026 Richard Oliver. Licensed under Apache Licence version 2.0. */
 package pserv
 import scalasql.*, PostgresDialect.*, ostrat.*
 
-object SSMain{
+object SSMain
+{
   def main(args: Array[String]): Unit =
   { println("Hello Scala Servlet")
     val home = System.getProperty("user.home")

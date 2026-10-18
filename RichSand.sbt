@@ -1,7 +1,7 @@
 /* Copyright 2024-6 Richard Oliver. Licensed under Apache Licence version 2.0. */
 version := "1.0.0"
-scalaVersion := "3.9.0"
-val osUri = uri("https://github.com/Rich2/openstrat.git#e78b6f1")
+scalaVersion := "3.10.0"
+val osUri = uri("https://github.com/Rich2/openstrat.git#60956ef")
 lazy val Util = ProjectRef(osUri, "Util")
 lazy val Geom = ProjectRef(osUri, "Geom")
 lazy val Tiling = ProjectRef(osUri, "Tiling")
@@ -11,7 +11,7 @@ lazy val Core = (project in file("Core")).dependsOn(Geom).settings(
   name := "Core",
   //resolvers += "RichStrat" at "https://richstrat.com/repository",
   Compile/unmanagedResourceDirectories += (ThisBuild/baseDirectory).value / "User",
-  libraryDependencies += ("org.openjfx" % "javafx-controls" % "25.0.3").withSources().withJavadoc(),
+  libraryDependencies += ("org.openjfx" % "javafx-controls" % "27").withSources().withJavadoc(),
   libraryDependencies += ("dev.zio" %% "zio-prelude" % "1.0.0-RC48").withSources().withJavadoc(),
   Compile/scalaSource := baseDirectory.value / "src",
   Compile/mainClass := Some("pcore.MainApp"),
@@ -22,6 +22,6 @@ lazy val Serv = (project in file("Serv")).dependsOn(Geom).settings(
   name := "Serv",
   libraryDependencies += ("jakarta.servlet" % "jakarta.servlet-api" % "6.1.0" % "provided").withSources().withJavadoc(),
   libraryDependencies += ("com.lihaoyi" %% "scalasql" % "0.3.2").withSources().withJavadoc(),
-  libraryDependencies += ("org.postgresql" % "postgresql" % "42.7.13").withSources().withJavadoc(),
+  libraryDependencies += ("org.postgresql" % "postgresql" % "42.7.14").withSources().withJavadoc(),
   Compile/scalaSource := baseDirectory.value / "src",
 )
